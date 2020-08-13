@@ -1,9 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import CryptoJS from 'crypto-js';
-import localStorage from 'localStorage';
-import debug from 'debug';
+const CryptoJS = require('crypto-js');
+const localStorage = require('localStorage');
+const debug = require('debug');
 
-import SecureStorage from '../secure-storage';
+const SecureStorage = require('../src');
 
 const SECRET_KEY = 'my secret key';
 const debugLog = debug('secure-storage');

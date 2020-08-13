@@ -1,12 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import localStorage from 'localStorage';
-
+const localStorage = require('localStorage');
 /**
  * SecureStorage
  * @example
  * pasta example/app.js
  */
-export default class SecureStorage {
+module.exports = class SecureStorage {
   constructor(storage, options) {
     this.storage = storage || localStorage;
     if (options) {
@@ -48,4 +47,4 @@ export default class SecureStorage {
   getLength() {
     return this.storage.length;
   }
-}
+};
