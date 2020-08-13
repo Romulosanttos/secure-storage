@@ -1,6 +1,6 @@
 {
   "name": "secure-storage",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Um wrapper simples para localStorage/sessionStorage que permite criptografar/descriptografar os dados armazenados.",
   "main": "secure-storage.js",
   "scripts": {
@@ -21,7 +21,8 @@
     "@babel/cli": "^7.5.0",
     "@babel/core": "^7.5.0",
     "@babel/node": "^7.5.0",
-    "@babel/preset-env": "^7.5.0"
+    "@babel/preset-env": "^7.5.0",
+    "debug": "^4.1.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
@@ -29,7 +30,12 @@
     "@babel/node": "^7.5.0",
     "@babel/preset-env": "^7.5.0",
     "crypto-js": "^3.1.9-1",
-    "eslint": "^6.0.1",
+    "eslint": "7.2.0",
+    "eslint-config-airbnb": "18.2.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-jsx-a11y": "^6.3.0",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "4.0.0",
     "localStorage": "^1.0.4"
   }
 }

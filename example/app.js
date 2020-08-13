@@ -1,37 +1,37 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import CryptoJS from 'crypto-js';
-import { SecureStorage } from '../secure-storage';
 import localStorage from 'localStorage';
+import debug from 'debug';
+
+import SecureStorage from '../secure-storage';
+
 const SECRET_KEY = 'my secret key';
-const id = 'data', data = {
-	secret: 'data'
-};
+const debugLog = debug('secure-storage');
 
 const secureStorage = new SecureStorage(localStorage, {
-	hash: function hash(key) {
-		key = CryptoJS.SHA256(key, SECRET_KEY);
+  hash: function hash(key) {
+    const newKey = CryptoJS.SHA256(key, SECRET_KEY);
 
-		return key.toString();
-	},
-	encrypt: function encrypt(data) {
-		data = CryptoJS.AES.encrypt(data, SECRET_KEY);
-
-		data = data.toString();
-
-		return data;
-	},
-	decrypt: function decrypt(data) {
-		data = CryptoJS.AES.decrypt(data, SECRET_KEY);
-
-		data = data.toString(CryptoJS.enc.Utf8);
-
-		return data;
-	}
+    return newKey.toString();
+  },
+  encrypt: function encrypt(data) {
+    const newData = CryptoJS.AES.encrypt(data, SECRET_KEY);
+    return newData.toString();
+  },
+  decrypt: function decrypt(data) {
+    const newData = CryptoJS.AES.decrypt(data, SECRET_KEY);
+    return newData.toString(CryptoJS.enc.Utf8);
+  },
 });
 
+const id = 'data';
+const data = {
+  secret: 'data',
+};
 
 secureStorage.setItem(id, data);
 
-secureStorage.getItem(id);
+debugLog(secureStorage.getItem(id));
 
 secureStorage.removeItem(id);
 
@@ -39,4 +39,4 @@ secureStorage.removeItem(id);
 
 secureStorage.clear();
 
-secureStorage.length;
+debugLog(secureStorage.getLength());
